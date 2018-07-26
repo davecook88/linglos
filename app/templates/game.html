@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='study.css') }}">
+{% endblock %}
+{% block app_content %}
+
+  <div class="jumbotron">
+
+    <h1 class="display-4 text-center" id="translation"></h1>
+    <div id="progressBar">
+      <div>
+      </div>
+    </div>
+  </div><!--jumbotron-->
+  <div class="container-fluid">
+  <div class="row justify-content-center answer-row">
+  </div>
+  <div class="row justify-content-center win-lose-row">
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="{{url_for('static', filename='prepareGame.js')}}"></script>
+  <script>
+  var oJson = {{ oJson | tojson }}
+
+  var flip = oJson[0]["flip"]//!({{ flip }})
+  var urls = {
+    game:  "{{ url_for('game')}}"
+  }
+  var gameType = oJson[0].game_type;
+  gameType = checkGameType(oJson, gameType);
+  var maxTime = (gameType == "sentences" || gameType == "definitions" ? 4500 : 2000);//100ths of a second
+  var clue,options,result, timeRemaining;
+  if (flip) {
+    clue = 'body'
+    options = gameType
+  } else {
+    clue = gameType
+    options = 'body'
+  }
+  var listOfWords = populateWordList(oJson);
+  var a = listOfWords[0];
+  var finished = false;
+  makeTranslationDiv(oJson);
+  makeAnswerDivs(oJson, listOfWords);
+  //Animates the countdown bar
+  timeout([-1,maxTime],0.01,function(i){
+    if (finished) {
+      return
+    }
+    var timeLeft = maxTime - i;
+    countdown(timeLeft,maxTime);
+    if (timeLeft==1){
+      lose("Out of time - too bad!");
+    }
+  });
+  </script>
+  <script src="{{url_for('static', filename='game.js')}}"></script>
+{% endblock %}

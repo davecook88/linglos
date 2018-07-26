@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block app_content %}
+<div class="container">
+  <div class="row justify-content-center">
+  <div class="translation-bubble col-4">
+    <span id="translation"></span>
+  </div><!--translation-bubble-->
+  </div><!--row-->
+  <div class="row justify-content-center answer-row">
+  </div>
+  <div class="row justify-content-center win-lose-row">
+  </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script>
+  var listOfWords = [];
+  {% for x in word_list %}
+    listOfWords.push('{{ x }}');
+  {% endfor %}
+  //var listOfWords = {{ word_list }}//["word", "house", "pond", "hat"];
+  var translation = '{{ list[0][2] }}';
+  var answer = '{{ list[0][1] }}';
+  var i = 0;
+  var finished = false;
+  var id = id;
+
+  function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+  function win() {
+    finished = true;
+    $(".win-lose-row").append(
+      $("<div />", {
+        class: "win-button col-2",
+        text: "Next",
+        click: function(e) {
+          window.location.href="{{ url_for('game_win', id=id) }}";
+          e.preventDefault();
+        }
+      })
+    );
+  }
+  function lose() {
+    finished = true;
+    $("#translation").text("Sorry - wrong answer");
+    $(".answer").each(function() {
+      text = $(this).text();
+      if (text == answer) {
+        $(this).addClass("correct-answer");
+        return;
+      }
+    });
+    $(".win-lose-row").append(
+      $("<div />", {
+        class: "lose-button col-2",
+        text: "Next",
+        click: function(e) {
+          window.location.href="{{ url_for('game', id=id) }}";
+          e.preventDefault();
+        }
+      })
+    );
+  }
+
+  $("#translation").text(translation);
+
+  listOfWords=shuffle(listOfWords);
+
+  listOfWords.forEach(function(word) {
+    $(".answer-row").append(
+      $("<div />", {
+        class: "answer col-2",
+        text: word,
+        id: i,
+        click: function(e) {
+          if (!finished) {
+            if ($(this).text() == answer) {
+              win();
+            } else {
+              lose();
+            }
+          }
+          e.preventDefault();
+        }
+      })
+    );
+    i++;
+  });
+
+  </script>
+{% endblock %}

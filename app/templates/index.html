@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+	{% block app_content %}
+	<div class="jumbotron jumbotron-fluid jumbotron-front-page">
+		<div class="container">
+		    <h1 class="display-4 text-center">linglos</h1>
+		    <p class="lead text-center">Learn every aspect of each new word</p>
+		  </div>
+</div>
+<div class="container">
+    <div class="row advantage-row">
+	<div class="col-md" id="col1">
+        <div class="inner full-height">
+		<h2 class="text-center">Powered by the Oxford English Dictionary</h2>
+        <p class="text-center">Translations, synonyms, definitions and example sentences for every available meaning.</p>
+        </div>
+	</div>
+	<div class="col-md" id="col2">
+        <div class="inner full-height">
+		<h2 class="text-center">Automatically created study plan</h2>
+        <p class="text-center">Choose a pre-made list of words or customise your own.</p>
+        </div>
+	</div>
+	<div class="col-md" id="col3">
+        <div class="inner full-height">
+		<h2 class="text-center">Learn words in depth</h2>
+        <p class="text-center">Don't just learn word pairs - learn how to <i>use</i> the word</p>
+        </div>
+	</div>
+</div>
+<div class="d-flex flex-row-reverse">
+
+	<div class="p-4">
+		<h3 class="text-right">Welcome back <strong>{{ current_user.username }}</strong></h3>
+		{% if form %}
+			<div class="p-4">
+					{{ wtf.quick_form(form) }}
+			</div>
+		{% endif %}
+	</div>
+	<div class="mr-auto p-4 welcome">
+		<h2 class="text-center">Welcome to linglos</h2>
+	<p>Linglos is a tool which has been developed to help you to learn words in-depth - not just superficially.</p>
+	<p>Too many language learners simply study pairs of words with a translation in their native language and never successfully
+	grasp how to use the word. Linglos is a fun way to improve this depth of knowledge and improve understanding.</p>
+	</div>
+</div>
+
+
+	</div>
+	<div id="fixed-icons">
+	  <div class="row">
+
+	          <a href="https://www.facebook.com/dave.cook.963" target="_blank">
+	            <i class="fa fa-facebook-square soc-med" aria-hidden="true"></i>
+	          </a>
+	          <a href="https://twitter.com/DaveCookUK" target="_blank">
+	            <i class="fa fa-twitter-square soc-med" aria-hidden="true"></i>
+	          </a>
+	          <a href="https://www.linkedin.com/in/david-cook-a1549ba2/" target="_blank">
+	            <i class="fa fa-linkedin-square soc-med" aria-hidden="true"></i>
+	          </a>
+	          <a href="whatsapp://send?text=Hola Dave!&amp;phone=+5215559390163">
+	            <i class="fa fa-whatsapp soc-med hide-on-desktop" aria-hidden="true"></i>
+	          </a>
+	          <a href="https://github.com/davecook88" target="_blank">
+	            <i class="fa fa-github-square soc-med" aria-hidden="true"></i>
+	          </a>
+	             <span>   Designed and developed by Dave Cook.
+	          <a href="https://daveingles.com" target="_blank">
+	            daveingles.com
+	          </a> </span>
+	        </div>
+	      </div>
+	  </div>
+
+
+
+{% endblock %}

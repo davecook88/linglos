@@ -1,0 +1,40 @@
+var nextButton = $("<div />", {
+    class: "inner next-button col-2-md purple-hover",
+    text: "Next",
+    click: function(e) {
+      window.location.href=urls.game;//"{{ url_for('game') }}";
+      e.preventDefault();
+    }
+  })
+
+function lose(message) {
+  var loseMessageText = message || "Sorry, wrong answer!";
+  var loseMessage = $("<div />", {
+    class: "wrong-answer-message col-12 inner",
+    text: loseMessageText,
+  })
+
+  finished = true;
+  $(".win-lose-row").append(loseMessage);
+  $(".answer").each(function(){
+    highlightCorrectAnswer($(this));
+    removePurpleHover($(this));
+  });
+  $(".win-lose-row").append(nextButton);
+
+  function highlightCorrectAnswer(el) {
+    text = $(el).text();
+    if (text == a) {
+      $(el).addClass("correct-answer");
+      return;
+    }};
+
+    function removePurpleHover(el){
+      $(el).removeClass("purple-hover");
+    };
+
+}
+function win() {
+  finished = true;
+  $(".win-lose-row").append(nextButton);
+}
