@@ -1,1 +1,3 @@
-web: flask db migrate -m "migrate"; flask db upgrade;  gunicorn app:app 
+web: gunicorn app:app
+init: python db_create.py
+upgrade: python db_upgrade.py
