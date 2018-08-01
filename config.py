@@ -5,6 +5,7 @@ class Config(object):
 	SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') #or \
 	#'sqlite:///' + os.path.join(basedir,'app.db') + '?check_same_thread=False'
+	SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
 	MAIL_SERVER = 'smtp.gmail.com' #os.environ.get('MAIL_SERVER')
 	MAIL_PORT = 465 #int(os.environ.get('MAIL_PORT') or 25)
