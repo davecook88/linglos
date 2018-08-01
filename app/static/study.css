@@ -1,0 +1,103 @@
+.translation-bubble {
+  text-align:center;
+  border-bottom:1px solid black;
+  padding:0.3em;
+  font-size:1.2em;
+}
+.add-button{
+  font-weight: bold;
+  cursor: default;
+}
+.add-button:hover{
+  color:#990033;
+}
+.answer {
+  margin:0.5em;
+  margin-top:1em;
+  text-align:center;
+  padding:1.5em;
+  cursor: default;
+  box-sizing: inherit;
+  transition-property: all;
+  font-size:2em;
+  color:#000;
+}
+
+.purple-hover:active,
+.purple-hover:hover {
+  -webkit-box-shadow: 0px 0px 20px 5px #990033;
+-moz-box-shadow: 0px 0px 20px 5px #990033;
+box-shadow: 0px 0px 20px 5px #990033;
+}
+.answer-text {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.big-font {
+  font-size: 1.6em;
+}
+.next-button {
+  text-align:center;
+  cursor: default;
+  color:#000;
+  font-family: 'Righteous', cursive;
+  font-size: 2em;
+  margin:2em;
+}
+
+.correct-answer {
+  background-color: #009966;
+}
+.small-answer {
+  font-size:1.0em;
+}
+.small-translation {
+  font-family: 'Poppins', sans-serif;
+  font-size:1.6em !important;
+}
+.wrong-answer-message {
+  font-size:1.2em;
+  text-align:center;
+  font-weight:bold;
+  color:#990033;
+  margin:1em;
+  margin-bottom: :0em;
+}
+#progressBar {
+    width: 100vw;
+    height: 22px;
+    background-color: rgba(255,255,255,0.7);
+    margin-top:40px;
+    margin-left:-20px;
+    margin-bottom:-40px;
+}
+#progressBar div {
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+    width: 100%;
+    background-color: #990033;
+}
+.points{
+  color:#990033 !important;
+  margin-top:-1.6em;
+  position:absolute;
+  right:25%;
+  opacity: 1;
+  text-shadow: rgb(255, 255, 255) 2px 0px 0px, rgb(255, 255, 255) 1.75517px 0.958851px 0px, rgb(255, 255, 255) 1.0806px 1.68294px 0px, rgb(255, 255, 255) 0.141474px 1.99499px 0px, rgb(255, 255, 255) -0.832294px 1.81859px 0px, rgb(255, 255, 255) -1.60229px 1.19694px 0px, rgb(255, 255, 255) -1.97998px 0.28224px 0px, rgb(255, 255, 255) -1.87291px -0.701566px 0px, rgb(255, 255, 255) -1.30729px -1.5136px 0px, rgb(255, 255, 255) -0.421592px -1.95506px 0px, rgb(255, 255, 255) 0.567324px -1.91785px 0px, rgb(255, 255, 255) 1.41734px -1.41108px 0px, rgb(255, 255, 255) 1.92034px -0.558831px 0px;
+  -webkit-animation: fadeinout 1.2s ease-in-out forwards;
+  animation: fadeinout 1.2s ease-in-out forwards;
+
+}
+
+@-webkit-keyframes fadeinout {
+  0%,100% { opacity: 0;font-size:1em;margin-top:-3.6em; }
+  50% { opacity: 1;font-size:4em;margin-top:-1.6em; }
+}
+
+@keyframes fadeinout {
+  0%,100% { opacity: 0;font-size:1em;margin-top:-3.6em; }
+  50% { opacity: 1;font-size:4em;margin-top:-1.6em; }
+}

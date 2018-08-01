@@ -1,0 +1,63 @@
+{% import 'bootstrap/wtf.html' as wtf %} {% extends "base.html" %} {% block styles %} {{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='user.css') }}"> {% endblock %} {% block app_content %}
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-md-6">
+		<table>
+			<tr valign="top">
+				<td>
+					<h1>Word: {{ word.body }}</h1>
+					<p>Last seen on: {{ moment(UserWordList.last_seen).format('LLL') }}</p>
+					<p>Current level: {{ UserWordList.level }}</p>
+				</td>
+			</tr>
+		</table>
+		</div>
+		<div class="col-md-6 text-right">
+			<h3>Add your own translations for this word!</h3>
+			{{ wtf.quick_form(form) }}
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row titles">
+		<div class="col-sm-1 col-md-2"></div>
+		<div class="col-sm-10 col-md-8">
+			<div class="col-md-3 entry" id="definitions">
+				<h2>Definitions</h2></div>
+			<div class="col-md-3 entry" id="synonyms">
+				<h2>Synonyms</h2></div>
+			<div class="col-md-3 entry" id="sentences">
+				<h2>Sentences</h2></div>
+			<div class="col-md-3 entry" id="translations">
+				<h2>Translations</h2></div>
+		</div><div class="col-sm-1 col-md-2"></div>
+	</div>
+		<div class="row">
+			<div class="col-sm-1 col-md-2"></div>
+			<div class="col-sm-10 col-md-8">
+			<table class="table table-hover top-row full-width">
+			</table>
+		</div>
+		<div class="col-sm-1 col-md-2"></div>
+	</div>
+</div>
+
+</div>
+
+{% endblock %} {% block scripts %} {{ super() }}
+<script>
+	var oJson = {{ word.get_everything_as_dict() | tojson }};
+	var headerDiv = $(".entry");
+	headerDiv.click(function(e) {
+		$(".remove").remove();
+		$(".purple-text").removeClass("purple-text")
+		$(this).addClass("purple-text")
+		var entry = this.id;
+		var list = oJson[entry];
+		for (var i = 0; i < list.length; i++) {
+			$(".top-row").append("<tr class='remove full-width'><td class='text-center full-width'>" + list[i] + "</td></tr>");
+		}
+	})
+</script>
+{% endblock %}

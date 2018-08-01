@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<div class="jumbotron">
+  <h1>Register</h1>
+</div>
+<div class="row justify-content-md-center">
+    <div class="col-md-6 move-up padded">
+      <div class="inner black-text">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+  </div>
+  <div id="fixed-icons">
+    <div class="row">
+
+            <a href="https://www.facebook.com/dave.cook.963" target="_blank">
+              <i class="fa fa-facebook-square soc-med" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/DaveCookUK" target="_blank">
+              <i class="fa fa-twitter-square soc-med" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/david-cook-a1549ba2/" target="_blank">
+              <i class="fa fa-linkedin-square soc-med" aria-hidden="true"></i>
+            </a>
+            <a href="whatsapp://send?text=Hola Dave!&amp;phone=+5215559390163">
+              <i class="fa fa-whatsapp soc-med hide-on-desktop" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/davecook88" target="_blank">
+              <i class="fa fa-github-square soc-med" aria-hidden="true"></i>
+            </a>
+               <span>   Designed and developed by Dave Cook.
+            <a href="https://daveingles.com" target="_blank">
+              daveingles.com
+            </a> </span>
+          </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+  <script src="{{url_for('static', filename='register.js')}}"></script>
+{% endblock %}

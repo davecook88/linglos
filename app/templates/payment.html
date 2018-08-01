@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Buy more words</h1>
+</div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-6">
+      <p>
+        Linglos was not designed to make money. It is made as a tool to help people to learn languages in a
+        better way.
+      </p>
+      <p>
+        I'd love to keep this as a free app and with sponsorship, maybe this will be possible one day.
+      </p>
+      <p>
+        If we don't pay for access to the OED, we will be limited to a very small number of words added each month, which would be no good for anyone.
+      </p>
+      <p>
+        Your contributions keep linguee going.
+      </p>
+    </div>
+    <div class="col-md-6">
+      {% include '_paypal_form.html' %}
+    </div>
+  </div>
+</div>
+
+{% include '_paypal_form.html' %}
+
+{% endblock %}

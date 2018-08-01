@@ -1,0 +1,24 @@
+img {
+  margin:2em;
+}
+.full-width{
+  width:100%;
+}
+.purple-text {
+  color:#990033;;
+}
+.control-label {
+  display:none;
+}
+@media only screen and (min-width: 600px){
+  form{
+    margin-right:0;
+    position:absolute;
+    right:50px;
+  }
+}
+@media only screen and (max-width: 600px){
+  form,.text-right{
+    text-align:left !important;
+
+  }
