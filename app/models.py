@@ -21,7 +21,7 @@ class Payment(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	unix = db.Column(db.Integer)
 	payment_date = db.Column(db.DateTime, default=datetime.utcnow)
-	username = db.Column(db.Integer, db.ForeignKey('user.username'))
+	username = db.Column(db.String(64), db.ForeignKey('user.username'))
 	last_name = db.Column(db.String(30))
 	payment_gross = db.Column(db.Float)
 	payment_fee = db.Column(db.Float)
