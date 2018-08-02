@@ -7,14 +7,14 @@
 			<tr valign="top">
 				<td>
 					<h1>Word: {{ word.body }}</h1>
-					<p>Last seen on: {{ moment(UserWordList.last_seen).format('LLL') }}</p>
-					<p>Current level: {{ UserWordList.level }}</p>
+					<p class="small-on-mobile">Last seen on: {{ moment(UserWordList.last_seen).format('LLL') }}</p>
+					<p class="small-on-mobile">Current level: {{ UserWordList.level }}</p>
 				</td>
 			</tr>
 		</table>
 		</div>
 		<div class="col-md-6 text-right">
-			<h3>Add your own translations for this word!</h3>
+			<h3 class="small-on-mobile">Add your own translations for this word!</h3>
 			{{ wtf.quick_form(form) }}
 		</div>
 	</div>

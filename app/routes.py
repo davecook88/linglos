@@ -28,6 +28,8 @@ def index():
 	if form.validate_on_submit():
 		if current_user.max_calls_reached():
 			now = datetime.now()
+			if current_user.last_call == None:
+				current_user.last_call = now
 			if (now - current_user.last_call).days > 30:
 				current_user.reset_calls()
 			else:

@@ -9,8 +9,8 @@ from flask import flash
 from threading import Thread
 
 
-OED_ID = '15c382c3'
-OED_KEY = '2f9b49469c209430a038ae9239d19c6d'
+OED_ID = Config.OED_ID
+OED_KEY = Config.OED_KEY
 native_language = ""
 target_language = ""
 user_id = 0
@@ -94,7 +94,7 @@ def Call_API(search_term, **kwargs):
 	if extra_parameter != "":
 		extra_parameter = "/" + extra_parameter
 	baseURL = "https://od-api.oxforddictionaries.com/api/v1/entries/%s/%s%s" % (target_language,search_term,extra_parameter)
-	Config.CALLS_THIS_MONTH += 1
+	os.environ['CALLS_THIS_MONTH'] = Config.CALLS_THIS_MONTH + 1
 	print(native_language,target_language)
 	print(baseURL)
 	try:

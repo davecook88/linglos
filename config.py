@@ -13,10 +13,10 @@ class Config(object):
 	MAIL_USE_SSL = True
 	MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 	MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-	OED_ID = '15c382c3'
-	OED_KEY = '2f9b49469c209430a038ae9239d19c6d'
+	OED_ID = os.environ.get('OED_ID') #'15c382c3'
+	OED_KEY = os.environ.get('OED_KEY') #'2f9b49469c209430a038ae9239d19c6d'
 	ADMINS = ['flasktester@gmail.com']
 	POSTS_PER_PAGE = 3
 	LANGUAGES = ['en','es']
-	CALLS_THIS_MONTH = 0
+	CALLS_THIS_MONTH = os.environ.get('CALLS_THIS_MONTH')
 	LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')

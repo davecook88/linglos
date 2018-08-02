@@ -22,3 +22,7 @@ img {
     text-align:left !important;
 
   }
+  .small-on-mobile{
+    font-size:smaller !important;
+  }
+}

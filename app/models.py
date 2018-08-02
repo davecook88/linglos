@@ -119,13 +119,17 @@ class User(UserMixin, db.Model):
 	points = db.Column(db.Integer)
 	native_language = db.Column(db.String(2))
 	target_language = db.Column(db.String(2))
-	calls_this_month = db.Column(db.Integer)
+	calls_this_month = db.Column(db.Integer, default=0)
 	max_calls_per_month = db.Column(db.Integer, default=50)
 	last_call = db.Column(db.DateTime)
 
 	studied_this_session = []
 
 	def max_calls_reached(self):
+		if self.calls_this_month is None:
+			self.calls_this_month = 0
+		if self.max_calls_per_month is None:
+			self.max_calls_per_month = 0
 		if self.calls_this_month >= self.max_calls_per_month:
 			return True
 		return False

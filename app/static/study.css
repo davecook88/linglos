@@ -43,7 +43,7 @@ box-shadow: 0px 0px 20px 5px #990033;
   color:#000;
   font-family: 'Righteous', cursive;
   font-size: 2em;
-  margin:2em;
+  margin:1em;
 }
 
 .correct-answer {
@@ -100,4 +100,31 @@ box-shadow: 0px 0px 20px 5px #990033;
 @keyframes fadeinout {
   0%,100% { opacity: 0;font-size:1em;margin-top:-3.6em; }
   50% { opacity: 1;font-size:4em;margin-top:-1.6em; }
+}
+@media only screen and (max-device-width: 600px) {
+  .answer {
+  margin:0.3em;
+  margin-top:1em;
+  padding:1em;
+  font-size:1em;
+
+}
+  .inner{
+    padding:1em;
+    -webkit-box-shadow: 0px 0px 20px 1px #111;
+    -moz-box-shadow: 0px 0px 20px 1px #111;
+    box-shadow: 0px 0px 20px 1px #111;
+  }
+  .purple-hover:active,
+  .purple-hover:hover {
+      -webkit-box-shadow: 0px 0px 20px 2px #990033;
+      -moz-box-shadow: 0px 0px 20px 2px #990033;
+      box-shadow: 0px 0px 20px 2px #990033;
+  }
+  .next-button {
+    color:#000;
+    font-family: 'Righteous', cursive;
+    font-size: 1.5em;
+    margin:0.2em;
+  }
 }
