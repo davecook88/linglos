@@ -126,7 +126,7 @@ class User(UserMixin, db.Model):
 	studied_this_session = []
 
 	def max_calls_reached(self):
-		if calls_this_month >= max_calls_per_month:
+		if self.calls_this_month >= self.max_calls_per_month:
 			return True
 		return False
 
