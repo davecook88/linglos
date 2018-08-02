@@ -136,7 +136,6 @@ class User(UserMixin, db.Model):
 	def reset_calls(self):
 		self.calls_this_month = 0
 
-	words_id = db.session.query(Word.id).join(UserWordList).filter(UserWordList.user_id == id)
 	#THIS NEEDS WORKING OUT. Both of the above attributes should be represented by the function below
 	def get_wordlist(self):
 		l = (db.session.query(
