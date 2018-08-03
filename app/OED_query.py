@@ -91,11 +91,12 @@ def add_new_word(textArray, languages): #removed app from args
 
 def Call_API(search_term, **kwargs):
 	print("------------call_api---------------------")
+	print("search_term:" + str(search_term))
 	extra_parameter = kwargs.get("extra_parameter", "")
 	if extra_parameter != "":
 		extra_parameter = "/" + extra_parameter
 	baseURL = "https://od-api.oxforddictionaries.com/api/v1/entries/%s/%s%s" % (target_language,search_term,extra_parameter)
-	os.environ['CALLS_THIS_MONTH'] = int(Config.CALLS_THIS_MONTH) + 1
+	os.environ['CALLS_THIS_MONTH'] = str(int(Config.CALLS_THIS_MONTH) + 1)
 	print(native_language,target_language)
 	print(baseURL)
 	try:
