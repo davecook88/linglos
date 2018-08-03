@@ -26,7 +26,10 @@ babel = Babel(app)
 
 from app import routes, models
 if datetime.now().day == 1:
-	Config.CALLS_THIS_MONTH = 0;
+	calls = Calls.query.first();
+	calls.calls_this_month = 0;
+	db.session.add(calls)
+	db.session.commit()
 if not app.debug:
 	if app.config['MAIL_SERVER']:
 		auth = None
