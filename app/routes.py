@@ -48,7 +48,7 @@ def index():
 				#db_word = Word.query.filter_by(body=word).first()
 			except Exception as e:
 				print(e)
-				flash('There was a problem adding the word')
+				flash(e)
 				return redirect(url_for('index'))
 		if in_list_already(word, current_user):
 			flash('Word already in list')
