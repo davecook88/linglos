@@ -1,6 +1,7 @@
 import app
 import requests
 import json
+import os
 from config import Config
 from app.models import User, Word, Sentences, Synonyms, Translations, Definitions, UserWordList
 from app import app, db
