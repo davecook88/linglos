@@ -30,6 +30,8 @@ def index():
 			now = datetime.now()
 			if current_user.last_call == None:
 				current_user.last_call = now
+				db.session.add(current_user)
+				db.sesson.commit()
 			if (now - current_user.last_call).days > 30:
 				current_user.reset_calls()
 			else:
