@@ -28,7 +28,7 @@ def add_word_to_UWL(word_id):
 	db.session.commit()
 
 def add_new_word(textArray, languages): #removed app from args
-	if Config.CALLS_THIS_MONTH > 2999:
+	if int(Config.CALLS_THIS_MONTH) > 2999:
 		flash('Linglos has reached the limit of dictionary calls this month. Please donate to help us keep going.')
 		return
 	global native_language;
@@ -94,7 +94,7 @@ def Call_API(search_term, **kwargs):
 	if extra_parameter != "":
 		extra_parameter = "/" + extra_parameter
 	baseURL = "https://od-api.oxforddictionaries.com/api/v1/entries/%s/%s%s" % (target_language,search_term,extra_parameter)
-	os.environ['CALLS_THIS_MONTH'] = Config.CALLS_THIS_MONTH + 1
+	os.environ['CALLS_THIS_MONTH'] = int(Config.CALLS_THIS_MONTH) + 1
 	print(native_language,target_language)
 	print(baseURL)
 	try:

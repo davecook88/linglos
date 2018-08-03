@@ -49,7 +49,6 @@ def index():
 				return redirect(url_for('index'))
 				#db_word = Word.query.filter_by(body=word).first()
 			except Exception as e:
-				print("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 				print(e)
 				flash(str(e))
 				return redirect(url_for('index'))
