@@ -3,7 +3,7 @@ import requests
 import json
 import os
 from config import Config
-from app.models import User, Word, Sentences, Synonyms, Translations, Definitions, UserWordList
+from app.models import *
 from app import app, db
 from flask_login import current_user
 from flask import flash
@@ -29,7 +29,8 @@ def add_word_to_UWL(word_id):
 	db.session.commit()
 
 def add_new_word(textArray, languages): #removed app from args
-	if int(Config.CALLS_THIS_MONTH) > 2999:
+	calls = Calls.query.first()
+	if calls.calls_this_month > 2999:
 		flash('Linglos has reached the limit of dictionary calls this month. Please donate to help us keep going.')
 		return
 	global native_language;
@@ -96,7 +97,11 @@ def Call_API(search_term, **kwargs):
 	if extra_parameter != "":
 		extra_parameter = "/" + extra_parameter
 	baseURL = "https://od-api.oxforddictionaries.com/api/v1/entries/%s/%s%s" % (target_language,search_term,extra_parameter)
-	os.environ['CALLS_THIS_MONTH'] = str(int(Config.CALLS_THIS_MONTH) + 1)
+	calls = Calls.query.first()
+	calls.calls_this_month = calls.calls_this_month + 1
+	db.session.add(calls)
+	db.session.commit()
+	#os.environ['CALLS_THIS_MONTH'] = str(int(Config.CALLS_THIS_MONTH) + 1)
 	print(native_language,target_language)
 	print(baseURL)
 	try:

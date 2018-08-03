@@ -17,6 +17,9 @@ followers = db.Table('followers',
 def load_user(id):
 	return User.query.get(int(id))
 
+class Calls(db.Model):
+	calls_this_month = db.Column(db.Integer, default=0)
+
 class Payment(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	unix = db.Column(db.Integer)
