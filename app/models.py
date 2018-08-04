@@ -65,7 +65,7 @@ class UserWordList(db.Model):
 	level = db.Column(db.Integer, default=0)
 	__table_args__ = (UniqueConstraint('user_id', 'word_id', name='_user_word_uc'),
                      )
-	last_exercise = db.Column(db.String(10))
+	last_exercise = db.Column(db.String(20))
 	user_translations = db.Column(db.String(200	))
 
 	def level_up(self, points, game_type):

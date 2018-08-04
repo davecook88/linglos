@@ -158,6 +158,7 @@ def game():
 @app.route('/game-win', methods=['POST'])
 @login_required
 def game_win():
+	print("----------game-win-------------")
 	last_word_id = thwart(request.form['id'])
 	game_type = request.form['game_type']
 	game_result = request.form['result']

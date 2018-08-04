@@ -80,7 +80,7 @@ function makeAnswerDivs(oJson){
             result = "lose";
             lose();
           }
-          console.log()
+          console.log( "$.post('/game-win', {id: "+ window.oJson[1]['UWL_id']+ ", game_type:" + window.gameType + ", result:" + "result})")
           $.post('/game-win', {id: window.oJson[1]['UWL_id'], game_type:window.gameType, result:result})
           .done(function(data){
             var points = $("<h1 />", {
