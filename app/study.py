@@ -7,7 +7,7 @@ import datetime
 import random
 import json
 
-studied
+studied = []
 
 def choose_word_game(options_list):
     correct_answer = options_list[0]
