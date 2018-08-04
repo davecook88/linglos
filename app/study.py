@@ -7,6 +7,8 @@ import datetime
 import random
 import json
 
+studied
+
 def choose_word_game(options_list):
     correct_answer = options_list[0]
 
@@ -20,6 +22,7 @@ def choose_lowest_level_word():
     if len(word_list.all()) < 1:
         word_list = u.get_wordlist_objects().order_by(asc(UserWordList.level))
     #---------------------------------------------------------------------
+    global studied
     studied = current_user.studied_this_session
     print("************studied_this_session**************")
     print(studied)
