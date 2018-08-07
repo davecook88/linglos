@@ -10,10 +10,14 @@ var nextButton = $("<div />", {
 function lose(message) {
   var loseMessageText = message || "Sorry, wrong answer!";
   var loseMessage = $("<div />", {
-    class: "wrong-answer-message col-10 inner",
+    class: "col-12",
     text: loseMessageText,
   })
-
+  var loseInner = $("<div />", {
+    class: "wrong-answer-message inner",
+    text: loseMessageText,
+  })
+  loseMessage = loseMessage.append(loseInner);
   finished = true;
   $(".win-lose-row").append(loseMessage);
   $(".answer").each(function(){

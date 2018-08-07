@@ -63,6 +63,7 @@ box-shadow: 0px 0px 20px 5px #990033;
   color:#990033;
   margin:1em;
   margin-bottom: :0em;
+  width: 50%;
 }
 #progressBar {
     width: 100vw;
