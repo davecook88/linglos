@@ -11,7 +11,6 @@ function lose(message) {
   var loseMessageText = message || "Sorry, wrong answer!";
   var loseMessage = $("<div />", {
     class: "col-12",
-    text: loseMessageText,
   })
   var loseInner = $("<div />", {
     class: "wrong-answer-message inner",

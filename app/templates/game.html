@@ -47,6 +47,8 @@
   var a = listOfWords[0];
   var finished = false;
   makeTranslationDiv(oJson);
+  add_gameType(gameType);
+  game_colour(gameType)
   makeAnswerDivs(oJson, listOfWords);
   //Animates the countdown bar
   timeout([-1,maxTime],0.01,function(i){

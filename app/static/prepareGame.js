@@ -115,6 +115,27 @@ function addWordButton(word){
   $("#progressBar").before(button);
 }
 
+function add_gameType(gameType){
+  var d = $("<div />", {
+    class:"gameType",
+    text:"Find the " + gameType});
+  var j = $(".jumbotron");
+  j.prepend(d);
+}
+
+function game_colour(gameType) {
+  var j = $(".jumbotron");
+  var col = "#990033"
+  if (gameType == "synonyms") {
+    col = "#008099";
+  }
+  else if (gameType == "translations ") {
+    col = "#660099";
+  }
+  else {return}
+  j.css({"color":col});
+}
+
 function isTextLong(text){
   if (text.length > 25) {
     return true;
