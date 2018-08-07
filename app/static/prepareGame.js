@@ -133,7 +133,7 @@ function game_colour(gameType) {
     col = "#660099";
   }
   else {return}
-  j.css({"color":col});
+  j.css({"background-color":col});
 }
 
 function isTextLong(text){
