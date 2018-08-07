@@ -117,7 +117,7 @@ function addWordButton(word){
 
 function add_gameType(gameType){
   var d = $("<div />", {
-    class:"gameType",
+    class:"game-type",
     text:"Find the " + gameType});
   var j = $(".jumbotron");
   j.prepend(d);
@@ -129,7 +129,7 @@ function game_colour(gameType) {
   if (gameType == "synonyms") {
     col = "#008099";
   }
-  else if (gameType == "translations ") {
+  else if (gameType == "sentences") {
     col = "#660099";
   }
   else {return}
