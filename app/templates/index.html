@@ -11,19 +11,19 @@
     <div class="row advantage-row">
 			<div class="col-md" id="mobile-bubble">
         <div class="inner full-height" id="mobile-bubble-inner">
-					{% if login == False %}
+					{% if login == True %}
 					<a href="#form" class="first-box">
 						<h2 class="text-center">Login to linglos</h2>
 	        	<p class="text-center">Or create an account if you're new to linglos.</p>
 					</a>
-						{% else %}
+					{% else %}
 					<a href="/game" class="first-box">
 						<h2 class="text-center">Click here to study!</h2>
 					</a>
 					<a href="#form" class="first-box">
 	        	<p class="text-center">Or click here to add words to your list.</p>
 					</a>
-						{% endif %}
+					{% endif %}
         </div>
 			</div>
 			<div class="col-md" id="col2">
