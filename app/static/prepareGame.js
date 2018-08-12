@@ -107,7 +107,7 @@ function addWordButton(word){
       class: "add-button text-center",
       text:"Add this word to your list",
       click: function(e) {
-        $.post('/add', {word:window.a}).done()//"{{ url_for('game') }}";
+        $.post('/add', {word:$("#translation").text()}).done()//"{{ url_for('game') }}";
         e.preventDefault();
       }
       }
