@@ -9,17 +9,34 @@
 </div>
 <div class="container">
     <div class="row advantage-row">
-	<div class="col-md" id="col1">
-        <div class="inner full-height">
-		<h2 class="text-center">Powered by the Oxford English Dictionary</h2>
-        <p class="text-center">Translations, synonyms, definitions and example sentences for every available meaning.</p>
+			<div class="col-md" id="col1">
+        <div class="inner full-height" id="mobile-bubble">
+					{% if login == False %}
+					<a hfref="#form" class="first-box">
+						<h2 class="text-center">Login to linglos</h2>
+	        	<p class="text-center">Or create an account if you're new to linglos.</p>
+					</a>
+						{% else %}
+					<a hfref="/study" class="first-box">
+						<h2 class="text-center">Click here to study!</h2>
+					</a>
+					<a hfref="#form" class="first-box">
+	        	<p class="text-center">Or click here to add words to your list.</p>
+					</a>
+						{% endif %}
         </div>
-	</div>
-	<div class="col-md" id="col2">
+			</div>
+			<div class="col-md" id="col2">
         <div class="inner full-height">
-		<h2 class="text-center">Automatically created study plan</h2>
-        <p class="text-center">Choose a pre-made list of words or customise your own.</p>
+					<h2 class="text-center">Automatically created study plan</h2>
+      		<p class="text-center">Choose a pre-made list of words or customise your own.</p>
+      </div>
+			<div class="col-md" id="col1">
+        <div class="inner full-height" id="bubble-1">
+					<h2 class="text-center">Powered by the Oxford English Dictionary</h2>
+        	<p class="text-center">Translations, synonyms, definitions and example sentences for every available meaning.</p>
         </div>
+			</div>
 	</div>
 	<div class="col-md" id="col3">
         <div class="inner full-height">
@@ -27,7 +44,7 @@
         <p class="text-center">Don't just learn word pairs - learn how to <i>use</i> the word</p>
         </div>
 	</div>
-</div>
+		</div>
 <div class="row">
 
 
@@ -37,7 +54,7 @@
 	<p>Too many language learners simply study pairs of words with a translation in their native language and never successfully
 	grasp how to use the word. Linglos is a fun way to improve this depth of knowledge and improve understanding.</p>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6" id="form">
 		{% if login == False %}
 		<h3 class="text-right">Welcome back <strong>{{ current_user.username }}</strong></h3>
 		{% endif %}
@@ -55,7 +72,7 @@
 
 
 	</div>
-	
+
 
 
 {% endblock %}

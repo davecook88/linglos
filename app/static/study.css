@@ -111,8 +111,10 @@ box-shadow: 0px 0px 20px 5px #990033;
   margin-top:1em;
   padding:1em;
   font-size:1em;
-
-}
+  }
+  .container-fluid {
+    margin-bottom: 3em;
+  }
   .inner{
     padding:1em;
     -webkit-box-shadow: 0px 0px 20px 1px #111;
@@ -124,6 +126,9 @@ box-shadow: 0px 0px 20px 5px #990033;
       -webkit-box-shadow: 0px 0px 20px 2px #990033;
       -moz-box-shadow: 0px 0px 20px 2px #990033;
       box-shadow: 0px 0px 20px 2px #990033;
+  }
+  #progressBar {
+    margin-left: 0;
   }
   .next-button {
     color:#000;

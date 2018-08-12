@@ -12,7 +12,7 @@ h1, h2, h3 {
   font-family: 'Righteous', cursive;
   }
 a {
-  color:#990033;
+  color:#096;
 }
 a:hover{
   color:color:#990033;
@@ -60,6 +60,12 @@ a::after{
   -webkit-box-shadow: 0px 0px 20px 5px #111;
   -moz-box-shadow: 0px 0px 20px 5px #111;
   box-shadow: 0px 0px 20px 5px #111;
+}
+.first-box {
+  text-decoration: none;
+}
+.first-box:hover{
+  color: #990033;
 }
 
 .nav-link:focus, .nav-link:hover {
@@ -176,4 +182,9 @@ a::after{
 }
 #word{
   width:25em;
+}
+@media only screen and (min-device-width: 600px) {
+  #mobile-bubble{
+    display:none;
+  }
 }
