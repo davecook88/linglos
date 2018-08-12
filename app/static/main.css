@@ -187,4 +187,8 @@ a::after{
   #mobile-bubble{
     display:none;
   }
+  .mobile-bubble-inner{
+    height:0;
+  }
+
 }
